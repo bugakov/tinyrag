@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project
+*.db
+*.sqlite
+out.txt
+err.txt
+
+# Zvec data
+zvec_data/
+
+# Claude / agents
+.claude/
+.agents/
