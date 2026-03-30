@@ -1,17 +1,21 @@
 import zvec
 
 schema = zvec.CollectionSchema(
-    fields=[
-        zvec.FieldSchema(name="id", data_type=zvec.DataType.STRING)
-    ],
-    vectors=[
-        zvec.VectorSchema(name="vector", data_type=zvec.DataType.VECTOR_FP32, dim=2)
-    ]
+    name="test",
+    fields=[zvec.FieldSchema(name="id", data_type=zvec.DataType.STRING)],
+    vectors=[zvec.VectorSchema(name="vector", data_type=zvec.DataType.VECTOR_FP32, dimension=2)],
 )
 
-collection = zvec.Collection(name="default", schema=schema)
-collection.insert(documents=[{"id": "1", "vector": [0.1, 0.2]}])
-collection.optimize()
+collection = zvec.create_and_open(path="./zvec_example", schema=schema)
 
-results = collection.query(vector=[0.1, 0.2], top_k=5)
+collection.insert([
+    zvec.Doc(id="1", vectors={"vector": [0.1, 0.2]}),
+    zvec.Doc(id="2", vectors={"vector": [0.9, 0.8]}),
+])
+
+results = collection.query(
+    zvec.VectorQuery("vector", vector=[0.1, 0.2]),
+    topk=5,
+)
+
 print(results)
