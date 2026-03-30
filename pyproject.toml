@@ -4,8 +4,11 @@ version = "0.1.0"
 description = "Tiny RAG with Zvec"
 requires-python = ">=3.10"
 dependencies = [
-    "zvec==0.1.1",
+    "zvec==0.2.1",
 ]
+
+[tool.uv.sources]
+zvec = { path = "wheels/zvec-0.2.1-cp312-cp312-manylinux_2_28_x86_64.whl" }
 
 [build-system]
 requires = ["hatchling"]
