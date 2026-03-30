@@ -2,7 +2,6 @@ import zvec
 
 schema = zvec.CollectionSchema(
     name="test",
-    fields=[zvec.FieldSchema(name="id", data_type=zvec.DataType.STRING)],
     vectors=[zvec.VectorSchema(name="vector", data_type=zvec.DataType.VECTOR_FP32, dimension=2)],
 )
 
