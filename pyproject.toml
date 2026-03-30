@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Tiny RAG with Zvec"
 requires-python = ">=3.10"
 dependencies = [
-    "zvec @ git+https://github.com/alibaba/zvec.git@v0.2.1",
+    "zvec==0.1.1",
 ]
 
 [build-system]
